@@ -9,31 +9,47 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
+        #map-container {
+            display: flex;
+            position: relative;
+            height: calc(95vh - 100px); /* Adjust as needed */
+            
+        }
         #map {
-            position: absolute;
-            top: 95px;
-            bottom: 80px;
+            flex: 1;
+            top: 90px;
+        }
+        #list-table-container {
+            flex: 1;
+            margin-top: 95px;
+        }
+        /* List table styles */
+        #list-table {
             width: 100%;
+            border-collapse: collapse;
         }
+        #list-table th, #list-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        #list-table th {
+            background-color: rgb(246, 253, 255);
+        }
+    
+        /* Define custom marker styles */
         .custom-marker {
-            width: 25px;
-            height: 41px;
-            margin: -20px -12px;
-            position: absolute;
-            cursor: pointer;
-        }
-        .marker-color {
             width: 20px;
             height: 20px;
-            border-radius: 50%;
-            border: 3px solid #fff; /* Add border to make markers visible */
+            background-color: #f00; /* Default color for marker */
+            border-radius: 50%; /* Ensures marker shape is circular */
         }
     </style>
 </head>
 <body>
-    <header class="bg-dark p-2">
+    <header class="bg-dark p-2" style="position: fixed ; top: 0; z-index: 1000; width: 100%;">
         <div class="cont">
-            <h1 class="text-light">Aachen Bürgerbeteiligungskarte</h1>
+            <h1 class="text-light">Aachen &#x2022 Bürgerbeteiligungskarte</h1>
         </div>
         <div class="cont" style="color:white; display: inline-block; float: left; margin-right: 20px;">
             <a href="indexHome.html"  style="color: white; text-decoration:underline;">Home</a>
@@ -46,18 +62,37 @@
         </div>
     </header>
     
-    
+    <!-- Map and List table container -->
+    <div id="map-container">
+        <!-- Map container -->
+        <div id="map"></div>
 
-    <!-- Map container -->
-    <div id="map"></div>
+        <!-- List table container -->
+        <div id="list-table-container">
+            <table id="list-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Beiträge</th>
+                        
+                        <!-- Add more columns as needed -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be added dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <footer id="footer" class="bg-dark p-3"> 
-        <div class="cont">
-            <p class="text-light text-align-center">
-            &copy; Copyright reserved . Design and developed for : RWTH Aachen - Fakultät für Architektur - Master Arbeit by <a href="mailto: wassimrad94@gmail.com">Wassim Mrad</a>
+    <footer style="position:fixed; bottom: 0;z-index: 1000; width: 100%;" id="footer" class="bg-dark p-2"> 
+        <div class="cont d-flex align-items-center justify-content-center">
+            <p class="text-light text-align-center m-0" >
+                &copy; Copyright reserved. Designed and developed for : RWTH Aachen - Fakultät für Architektur - Master Arbeit by <a href="mailto: wassimrad94@gmail.com">Wassim Mrad</a>
             </p>
         </div>
     </footer>
+    
 
     <!-- Third-party Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -65,7 +100,6 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <!-- Your custom JavaScript -->
     <script>
-        // Initialize the map
         var map = L.map('map').setView([50.7753, 6.0839], 14); // Centered on Aachen
 
         // Add OpenStreetMap tile layer
@@ -75,27 +109,37 @@
 
         // Function to add marker with popup comment
         function addMarkerWithComment(e) {
-            var popup = prompt("Geben Sie Ihre Kommentare ein");
-            if (popup) {
-                var colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff']; // Array of colors for markers
-                var randomColor = colors[Math.floor(Math.random() * colors.length)]; // Choose a random color from the colors array
+        var name = prompt("Bitte geben Sie Ihren Namen ein");
+        var comment = prompt("Geben Sie Ihre Kommentare ein");
+    
+     if (name && comment) {
+        var colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff']; // Array of colors for markers
+        var randomColor = colors[Math.floor(Math.random() * colors.length)]; // Choose a random color from the colors array
 
-                // Create custom marker icon with the selected color
-                var markerIcon = L.divIcon({
-                    className: 'custom-marker',
-                    html: '<div style="background-color: ' + randomColor + ';" class="marker-color"></div>'
-                });
+        // Create custom marker icon with the selected color and visible marker shape
+        var markerIcon = L.divIcon({
+            className: 'custom-marker',
+            html: '<div style="background-color: ' + randomColor + ';" class="marker-color"></div>'
+        });
 
-                // Add marker to the map
-                L.marker(e.latlng, { icon: markerIcon }).addTo(map)
-                    .bindPopup(popup)
-                    .openPopup();
-            }
-        }
+        // Add marker to the map
+        L.marker(e.latlng, { icon: markerIcon }).addTo(map)
+            .bindPopup(comment)
+            .openPopup();
+
+        // Add the comment to the list table
+        var tableBody = document.getElementById('list-table').getElementsByTagName('tbody')[0];
+        var newRow = tableBody.insertRow();
+        var nameCell = newRow.insertCell(0);
+        var commentCell = newRow.insertCell(1);
+        nameCell.appendChild(document.createTextNode(name));
+        commentCell.appendChild(document.createTextNode(comment));
+    }
+}
+
 
         // Add event listener for adding markers on click
         map.on('click', addMarkerWithComment);
     </script>
 </body>
 </html>
-
