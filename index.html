@@ -16,19 +16,40 @@
 
     <body>
 
-		<div class="container">
+
+		<div class="container0" id="container0">
 			<nav>
-				<img src="logo_f_buchhandel-webseite-orange.png" class="logo">
+				<a href="#container0"><img src="images/logo_f_buchhandel-webseite-orange.png" class="logo"></a>
 				<ul>
-					<li><a href=""> Home</a></li>
-					<li><a href=""> Über uns</a></li>
+					<li><a href="#container1"> Home</a></li>
+					<li><a href="#container2"> Über uns</a></li>
 					<li><a href=""> Beiträge Liste</a></li>
 					<li><a href=""> Urban pockets</a></li>
 					<li><a href=""> Contact us</a></li>
 					<li><a href=""> Privacy</a></li>
 				</ul>
-				<button class="Bookings-button"> E-mail schreiben </button>
+				<button class="Bookings-button">Beitrag erstellen</button>
 			</nav>
+			<footer id="footer">2024 &copy; Copyrights reserved. Designed and developed for : RWTH 
+				Aachen - Fakultät für Architektur - Master Arbeit von <a href="mailto: wassimrad94@gmail.com">Wassim Mrad</a></footer>
+
+		</div>
+		
+
+		<div class="container" id="container1">
+			<nav>
+				<a href="#container0"><img src="images/logo_f_buchhandel-webseite-orange.png" class="logo"></a>
+				<ul>
+					<li class="Home">Home</li>
+					<li><a href="#container2"> Über uns</a></li>
+					<li><a href=""> Beiträge Liste</a></li>
+					<li><a href=""> Urban pockets</a></li>
+					<li><a href=""> Contact us</a></li>
+					<li><a href=""> Privacy</a></li>
+				</ul>
+				<button class="Bookings-button">Beitrag erstellen</button>
+			</nav>
+			
 
 			<div class="content">
 				<h1>Sie können auch <br> an der Planung mitwirken</h1>
@@ -39,8 +60,53 @@
 					<button type="submit" class="btn" >Search</button>
 				</form>
 			</div>
+			
 
 		</div>
+
+
+		<div class="container2" id="container2">
+			<nav>
+				<a href="#container0"><img src="images/logo_f_buchhandel-webseite-orange.png" class="logo"></a>
+				<ul>
+					<li><a href="#container1"> Home</a></li>
+					<li class="Home"> Über uns </li>
+					<li><a href=""> Beiträge Liste</a></li>
+					<li><a href=""> Urban pockets</a></li>
+					<li><a href=""> Contact us</a></li>
+					<li><a href=""> Privacy</a></li>
+				</ul>
+				<button class="Bookings-button">Beitrag erstellen</button>
+			</nav>
+
+		</div>
+		
+
+		<!--Java Script for page scroll-->
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+			  const links = document.querySelectorAll('nav a');
+		  
+			  links.forEach(link => {
+				link.addEventListener('click', smoothScroll);
+			  });
+		  
+			  function smoothScroll(e) {
+				e.preventDefault();
+				const targetId = this.getAttribute('href');
+				const targetPosition = document.querySelector(targetId).offsetTop;
+		  
+				window.scrollTo({
+				  top: targetPosition,
+				  behavior: 'smooth'
+				});
+			  }
+			});
+			
+		  </script>
+		  
+
+
 
 
 
