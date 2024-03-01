@@ -7,8 +7,15 @@
     	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-       	<title>Document</title>
+       	<title>Digitales Aachen</title>
 		<link rel="stylesheet" href="styles.css">
+		
+		<!-- Other meta tags and stylesheets -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+		<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+		<!-- Other scripts -->
+		
+		
 
 
 
@@ -19,11 +26,11 @@
 
 		<div class="container0" id="container0">
 			<nav>
-				<a href="#container0"><img src="logo_f_buchhandel-webseite-orange.png" class="logo"></a>
+				<a href="#container0"><img src="images/logo_f_buchhandel-webseite-orange.png" class="logo"></a>
 				<ul>
 					<li><a href="#container1"> Home</a></li>
 					<li><a href="#container2"> Über uns</a></li>
-					<li><a href=""> Beiträge Liste</a></li>
+					<li><a href="#container3"> Beiträge Liste</a></li>
 					<li><a href=""> Urban pockets</a></li>
 					<li><a href=""> Contact us</a></li>
 					<li><a href=""> Privacy</a></li>
@@ -36,13 +43,13 @@
 		</div>
 		
 
-		<div class="container" id="container1">
+		<div class="container1" id="container1">
 			<nav>
-				<a href="#container0"><img src="logo_f_buchhandel-webseite-orange.png" class="logo"></a>
+				<a href="#container0"><img src="images/logo_f_buchhandel-webseite-orange.png" class="logo"></a>
 				<ul>
-					<li class="Home">Home</li>
+					<li class="Home"><a href="#container1"> Home</a></li>
 					<li><a href="#container2"> Über uns</a></li>
-					<li><a href=""> Beiträge Liste</a></li>
+					<li><a href="#container3"> Beiträge Liste</a></li>
 					<li><a href=""> Urban pockets</a></li>
 					<li><a href=""> Contact us</a></li>
 					<li><a href=""> Privacy</a></li>
@@ -64,22 +71,46 @@
 
 		</div>
 
-
+		
+		
 		<div class="container2" id="container2">
 			<nav>
-				<a href="#container0"><img src="logo_f_buchhandel-webseite-orange.png" class="logo"></a>
+				<a href="#container0"><img src="images/aachen logo.png" class="logo2"></a>
 				<ul>
 					<li><a href="#container1"> Home</a></li>
-					<li class="Home"> Über uns </li>
-					<li><a href=""> Beiträge Liste</a></li>
+					<li class="Home"><a href="#container2"> Über uns</a></li>
+					<li><a href="#container3"> Beiträge Liste</a></li>
 					<li><a href=""> Urban pockets</a></li>
 					<li><a href=""> Contact us</a></li>
 					<li><a href=""> Privacy</a></li>
 				</ul>
 				<button class="Bookings-button">Beitrag erstellen</button>
 			</nav>
-
+			
 		</div>
+
+		<div class="container3" id="container3">
+			<nav>
+				<a href="#container0"><img src="images/aachen logo.png" class="logo2"></a>
+				<ul>
+					<li><a class="Nav2" href="#container1"> Home</a></li>
+					<li><a class="Nav2" href="#container2"> Über uns</a></li>
+					<li><a class="Home" href=""> Beiträge Liste</a></li>
+					<li><a class="Nav2" href=""> Urban pockets</a></li>
+					<li><a class="Nav2" href=""> Contact us</a></li>
+					<li><a class="Nav2" href=""> Privacy</a></li>
+				</ul>
+				<button class="Bookings-button">Beitrag erstellen</button>
+			</nav>
+			<div class="Logo-line"></div>
+			<ul class="Dipas-nav">
+				<li class="Dipas-text"><a href="">BEITRAGSKARTE</a></li>
+				<li class="Dipas-text"><a href="">BEITRAGSLISTE</a></li>
+				<li class="Dipas-text"><a href="">UBER DAS VERFAHREN</a></li>
+			</ul>
+			
+		</div>
+		
 		
 
 		<!--Java Script for page scroll-->
@@ -104,6 +135,7 @@
 			});
 			
 		  </script>
+		  
 		  
 
 
