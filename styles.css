@@ -9,42 +9,54 @@ body {
         color: rgb(255, 255, 255);
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
-        font-size: 15px;
+        font-size: 13px;
 
     }
-    .container, .container2 {
-        transition: transform 0.3s ease-in-out;
+    .container0,.container .container2 {
+        transition: transform 0.4s ease-in-out;
     }
       
     .container0{
         width: 100%;
         min-height: 100vh;
-        background-image: linear-gradient(rgba(77, 76, 0, 0.05),rgba(22, 15, 35, 0.55) ), url(Progetto-senza-titolo-8.png);
+        background-image: linear-gradient(rgba(77, 76, 0, 0.05),rgba(22, 15, 35, 0.55) ), url(images/Progetto-senza-titolo-8.png);
         background-size: cover;
         background-position: center;
         padding: 0;
         margin: 0;
     }
-    .container{
+    .container1{
         width: 100%;
         min-height: 100vh;
         background-image: linear-gradient(rgba(77, 76, 0, 0.65),rgba(22, 15, 77, 0.65) ), 
-        url(Progetto-senza-titolo-8.png);
+        url(images/Progetto-senza-titolo-8.png);
         background-size: cover;
         background-position: center;
         padding: 0;
         margin: 0;
         
     }
+
     .container2{
         width: 100%;
         min-height: 100vh;
-        background-image: linear-gradient(rgba(77, 76, 0, 0.65),rgba(22, 15, 77, 0.65) );
+        background-image: linear-gradient(rgba(77, 76, 0, 0.65),rgba(22, 15, 77, 0.65) ), 
+        url(images/Progetto-senza-titolo-8.png);
         background-size: cover;
         background-position: center;
         padding: 0;
         margin: 0;
     }
+    .container3{
+        width: 100%;
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+        margin: 0;
+
+    }
+
     nav {
         width: 100%;
         display: flex;
@@ -121,7 +133,7 @@ body {
         font-weight: 500;
         cursor: pointer;
         margin-right: 60px;
-        margin-top: 20px ;
+        margin-top: 25px ;
         transition: 0.6s;
         font-weight: bold;
         font-family: Arial, Helvetica, sans-serif;
@@ -131,8 +143,10 @@ body {
     }
     
     .Bookings-button:hover{
-        opacity: 70%;
+        opacity: 80%;
         transition: 0.6s;
+        border: white;
+        
 
     }
     
@@ -188,5 +202,89 @@ body {
         font-size: 20px;
         
     }
+    .Nav2{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        color: rgb(172, 172, 172);
 
+    }
+    .Dipas-nav{
+        background-image: linear-gradient(to left, rgb(244, 233, 255), rgb(180, 144, 218));
+        text-align: left;
+        list-style: none ;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        justify-content: space-between;   
+    }
+    .Dipas-nav a {
+        display: inline-block;
+        color: white;
+        padding: 10px 20px; /* Adjust padding as needed */
+        text-decoration: none;
+        transition: 0.4s;
+    }
+    .Dipas-nav a:hover{
+        color:rgb(255, 188, 111) ;
+        transition: 0.4s;
+    }
+    .Dipas-text{
+        display: inline-block;
+    }
     
+    .logo2{
+        padding-left: 60px;
+        width: 220px;
+        cursor: pointer;
+        transition: 0.4s;
+        
+    }
+    .logo2:hover{
+        opacity: 50%;
+        transition: 0.4s;
+    }
+    .Logo-line{
+        background-color: rgb(250, 152, 40);
+        width:380px;
+        height: 12px;
+        color:rgb(250, 152, 40) ;
+        margin-top: 0;
+        margin-bottom: 0;
+        position: absolute;
+        margin-top: 12px;
+       
+
+    }
+    
+    ul .Home a{
+        color: gray;
+    }
+    
+
+    @media only screen and (max-width: 800px) {
+        /* Styles for screens with a maximum width of 800px or less */
+        /* For example, you might adjust the layout or font sizes */
+        .container0, .container, .container2 {
+            width: 100%;
+        }
+    
+        .logo {
+            max-width: 100px; /* Adjust the logo size for smaller screens */
+        }
+    
+        nav ul {
+            flex-direction: column; /* Change the navigation list to a column layout */
+        }
+    
+        nav ul li {
+                font-size: 14px; /* Adjust the font size of the list items */
+                padding: 5px 10px; /* Adjust the padding of the list items */
+        }
+    
+        .Bookings-button {
+            margin-top: 15px; /* Adjust the button position */
+        }
+    
+        /* You can add more styles as needed for responsive design */
+    }
