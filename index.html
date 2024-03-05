@@ -95,7 +95,7 @@
 				<ul>
 					<li><a class="Nav2" href="#container1"> Home</a></li>
 					<li><a class="Nav2" href="#container2"> Über uns</a></li>
-					<li><a class="Home" href=""> Beiträge Liste</a></li>
+					<li><a class="Home" href="#container3"> Beiträge Liste</a></li>
 					<li><a class="Nav2" href=""> Urban pockets</a></li>
 					<li><a class="Nav2" href=""> Contact us</a></li>
 					<li><a class="Nav2" href=""> Privacy</a></li>
@@ -108,6 +108,10 @@
 				<li class="Dipas-text"><a href="">BEITRAGSLISTE</a></li>
 				<li class="Dipas-text"><a href="">UBER DAS VERFAHREN</a></li>
 			</ul>
+			
+			<div id="map" class="map"></div>
+			<button class="Beitrag-button">	&#43 Beitrag erstellen</button>
+			
 			
 		</div>
 		
@@ -134,7 +138,21 @@
 			  }
 			});
 			
-		  </script>
+		</script>
+		<!--Java Script for map-->
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				// Initialize the map
+				var map = L.map('map').setView([50.7753,6.0839 ], 14); // Set initial coordinates and zoom level
+		
+				// Add a tile layer (you may need to adjust the URL based on your preference)
+				L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+					attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+				}).addTo(map);
+		
+			 });
+		</script>
+		
 		  
 		  
 
