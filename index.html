@@ -14,6 +14,12 @@
 		<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 		<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 		<!-- Other scripts -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+		<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+		
 		
 		
 
@@ -31,11 +37,12 @@
 					<li><a href="#container1"> Home</a></li>
 					<li><a href="#container2"> Über uns</a></li>
 					<li><a href="#container3"> Beiträge Liste</a></li>
-					<li><a href=""> Urban pockets</a></li>
+					<li><a href="#container5"> Urban pockets</a></li>
 					<li><a href=""> Contact us</a></li>
 					<li><a href=""> Privacy</a></li>
 				</ul>
-				<button class="Bookings-button">Beitrag erstellen</button>
+				<button class="Bookings-button" onclick="scrollToContainer3()" >Beitrag erstellen</button>
+				
 			</nav>
 			<footer id="footer">2024 &copy; Copyrights reserved. Designed and developed for : RWTH 
 				Aachen - Fakultät für Architektur - Master Arbeit von <a href="mailto: wassimrad94@gmail.com">Wassim Mrad</a></footer>
@@ -50,11 +57,11 @@
 					<li class="Home"><a href="#container1"> Home</a></li>
 					<li><a href="#container2"> Über uns</a></li>
 					<li><a href="#container3"> Beiträge Liste</a></li>
-					<li><a href=""> Urban pockets</a></li>
+					<li><a href="#container5"> Urban pockets</a></li>
 					<li><a href=""> Contact us</a></li>
 					<li><a href=""> Privacy</a></li>
 				</ul>
-				<button class="Bookings-button">Beitrag erstellen</button>
+				<button class="Bookings-button" onclick="scrollToContainer3()" >Beitrag erstellen</button>
 			</nav>
 			
 
@@ -80,11 +87,11 @@
 					<li><a href="#container1"> Home</a></li>
 					<li class="Home"><a href="#container2"> Über uns</a></li>
 					<li><a href="#container3"> Beiträge Liste</a></li>
-					<li><a href=""> Urban pockets</a></li>
+					<li><a href="#container5"> Urban pockets</a></li>
 					<li><a href=""> Contact us</a></li>
 					<li><a href=""> Privacy</a></li>
 				</ul>
-				<button class="Bookings-button">Beitrag erstellen</button>
+				<button class="Bookings-button" onclick="scrollToContainer3()" >Beitrag erstellen</button>
 			</nav>
 			
 		</div>
@@ -96,24 +103,83 @@
 					<li><a class="Nav2" href="#container1"> Home</a></li>
 					<li><a class="Nav2" href="#container2"> Über uns</a></li>
 					<li><a class="Home" href="#container3"> Beiträge Liste</a></li>
-					<li><a class="Nav2" href=""> Urban pockets</a></li>
+					<li><a class="Nav2" href="#container5"> Urban pockets</a></li>
 					<li><a class="Nav2" href=""> Contact us</a></li>
 					<li><a class="Nav2" href=""> Privacy</a></li>
 				</ul>
-				<button class="Bookings-button">Beitrag erstellen</button>
+				<button class="Bookings-button" onclick="scrollToContainer3()" >Beitrag erstellen</button>
 			</nav>
 			<div class="Logo-line"></div>
 			<ul class="Dipas-nav">
-				<li class="Dipas-text"><a href="">BEITRAGSKARTE</a></li>
-				<li class="Dipas-text"><a href="">BEITRAGSLISTE</a></li>
-				<li class="Dipas-text"><a href="">UBER DAS VERFAHREN</a></li>
+				<li class="Dipas-text"><a href="#container3">BEITRAGSKARTE</a></li>
+				<li class="Dipas-text"><a href="#container4">BEITRAGSLISTE</a></li>
 			</ul>
 			
 			<div id="map" class="map"></div>
-			<button class="Beitrag-button">	&#43 Beitrag erstellen</button>
-			
+			<button id="addMarkerButton" class="Beitrag-button">&#43 Beitrag erstellen</button>	
+					
 			
 		</div>
+
+		<div class="container4" id="container4">
+			<nav>
+				<a href="#container0"><img src="aachen logo.png" class="logo2"></a>
+				<ul>
+					<li><a class="Nav2" href="#container1"> Home</a></li>
+					<li><a class="Nav2" href="#container2"> Über uns</a></li>
+					<li><a class="Home" href="#container3"> Beiträge Liste</a></li>
+					<li><a class="Nav2" href="#container5"> Urban pockets</a></li>
+					<li><a class="Nav2" href=""> Contact us</a></li>
+					<li><a class="Nav2" href=""> Privacy</a></li>
+				</ul>
+				<button class="Bookings-button" onclick="scrollToContainer3()" >Beitrag erstellen</button>
+			</nav>
+			<div class="Logo-line"></div>
+			<ul class="Dipas-nav">
+				<li class="Dipas-text"><a href="#container3">BEITRAGSKARTE</a></li>
+				<li class="Dipas-text"><a href="#container4">BEITRAGSLISTE</a></li>
+			</ul>
+			
+			<div class="marker-list-container">
+				<table id="markerList">
+					<thead>
+						<tr>
+							<th>Marker</th>
+							<th>Name</th>
+							<th>Beitrag</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Table content goes here -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="container5" id="container5">
+			<nav>
+				<a href="#container0"><img src="aachen logo.png" class="logo2"></a>
+				<ul>
+					<li><a class="Nav2" href="#container1"> Home</a></li>
+					<li><a class="Nav2" href="#container2"> Über uns</a></li>
+					<li><a class="Nav2" href="#container3"> Beiträge Liste</a></li>
+					<li><a class="Home" href="#container5"> Urban pockets</a></li>
+					<li><a class="Nav2" href=""> Contact us</a></li>
+					<li><a class="Nav2" href=""> Privacy</a></li>
+				</ul>
+				<button class="Bookings-button" onclick="scrollToContainer3()" >Beitrag erstellen</button>
+			</nav>
+			<div class="Logo-line"></div>
+			<ul class="Dipas-nav">
+				<li class="Dipas-text"><a href="#container3">BEITRAGSKARTE</a></li>
+				<li class="Dipas-text"><a href="#container4">BEITRAGSLISTE</a></li>
+			</ul>
+					
+			
+		</div>
+
+		
+		
 		
 		
 
@@ -139,24 +205,85 @@
 			});
 			
 		</script>
+
+		<!--Java Script for beitrag button-->
+		<script>
+			function scrollToContainer3() {
+				var container3 = document.getElementById('container3');
+				container3.scrollIntoView({ behavior: 'smooth' });
+			}
+		</script>
+
+
+
 		<!--Java Script for map-->
 		<script>
+			// JavaScript for map
 			document.addEventListener("DOMContentLoaded", function() {
-				// Initialize the map
-				var map = L.map('map').setView([50.7753,6.0839 ], 14); // Set initial coordinates and zoom level
-		
-				// Add a tile layer (you may need to adjust the URL based on your preference)
+				var map = L.map('map').setView([50.7753, 6.0839], 14);
+
 				L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 					attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
 				}).addTo(map);
-		
-			 });
+
+				// Add search control to the map
+				L.Control.geocoder().addTo(map);
+
+				// Function to generate a random color
+				function getRandomColor() {
+					var letters = '0123456789ABCDEF';
+					var color = '#';
+					for (var i = 0; i < 6; i++) {
+						color += letters[Math.floor(Math.random() * 16)];
+					}
+					return color;
+				}
+
+				// Event listener for the "Beitrag erstellen" button
+				document.getElementById('addMarkerButton').addEventListener('click', function() {
+					// Prompt the user for name and comment
+					var name = prompt("Geben Sie Ihre Name ein");
+					var comment = prompt("Geben Sie Ihre Kommentare ein");
+
+					// Generate a random color for the marker
+					var markerColor = getRandomColor();
+
+					// Add the name and comment to the marker list
+					var markerList = document.getElementById('markerList').getElementsByTagName('tbody')[0];
+					var row = markerList.insertRow();
+					var cell1 = row.insertCell(0);
+					var cell2 = row.insertCell(1);
+					var cell3 = row.insertCell(2);
+					cell2.textContent = name;
+					cell3.textContent = comment;
+					
+					// Change square symbol to circle
+					cell1.innerHTML = '<svg height="20" width="20"><circle cx="10" cy="10" r="8" stroke="' + markerColor + '" fill="' + markerColor + '" /></svg>';
+
+					// Listen for a click event on the map
+					map.on('click', function(e) {
+						// Get the coordinates where the user clicked
+						var lat = e.latlng.lat;
+						var lng = e.latlng.lng;
+
+						// Create a custom marker with the provided name, comment, and color
+						var marker = L.circleMarker([lat, lng], {
+							radius: 5, // Adjust the radius as needed
+							color: markerColor,
+							fillColor: markerColor,
+							fillOpacity: 0.7
+						}).addTo(map).bindPopup("<b>" + name + "</b><br>" + comment).openPopup();
+
+						// Remove the click event listener to prevent multiple markers from being added on subsequent clicks
+						map.off('click');
+					});
+				});
+			});
+
+
+
 		</script>
 		
-		  
-		  
-
-
 
 
 
