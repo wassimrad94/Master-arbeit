@@ -41,7 +41,7 @@
     .container2{
         width: 100%;
         min-height: 100vh;
-        background-image: linear-gradient(rgba(77, 76, 0, 0.65),rgba(22, 15, 77, 0.65) ), 
+        background-image:linear-gradient(rgba(75, 72, 0, 0.65),rgba(22, 15, 77, 0.65) ), 
         url(Progetto-senza-titolo-8.png);
         background-size: cover;
         background-position: center;
@@ -75,6 +75,10 @@
         margin: 0;
 
     }
+    .content h1 {
+        margin-top: -105px; /* Adjust the value to move the heading up or down */
+    }
+    
 
     nav {
         width: 100%;
@@ -292,8 +296,41 @@
     }
     /* CSS for container4 */
     .container4 {
-        background-color: white; /* Set background color of container4 to white */
+        position: relative; /* Make the container position relative */
+        height: 100vh; /* Set height to 100% of viewport height */
     }
+    
+    .container4::before {
+        content: ""; /* Add a pseudo-element */
+        position: absolute; /* Position the pseudo-element absolutely */
+        top: 25%; /* Set the top position to leave 30% from the top */
+        bottom: 0; /* Set the bottom to take up the remaining space */
+        left: 0; /* Align to the left */
+        right: 0; /* Align to the right */
+        background-color: #ffffff; /* Grey background color */
+        z-index: -1; /* Set z-index to place behind other content */
+    }
+    .container5 {
+        position: relative; /* Make the container position relative */
+        height: 100vh; /* Set height to 100% of viewport height */
+    }
+    
+    .container5::before {
+        content: ""; /* Add a pseudo-element */
+        position: absolute; /* Position the pseudo-element absolutely */
+        top: 25%; /* Set the top position to leave 30% from the top */
+        bottom: 0; /* Set the bottom to take up the remaining space */
+        left: 0; /* Align to the left */
+        right: 0; /* Align to the right */
+        background-color: #ffffff; /* Grey background color */
+        z-index: -1; /* Set z-index to place behind other content */
+    }
+    #geoportalFrame {
+        margin-top: -16px; /* Adjust the value as needed */
+    }
+    
+    
+    
 
     .marker-list-container {
         max-height: calc(100vh - 200px);
