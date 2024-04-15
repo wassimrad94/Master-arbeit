@@ -1,15 +1,16 @@
-     body {
+body {
         margin: 0;
         padding: 0;
     }
     #footer{
         text-align: center;
-        margin: 0;
-        padding-top: 500px;
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
         color: rgb(255, 255, 255);
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
-        font-size: 13px;
+        font-size: 15px;
 
     }
     
@@ -75,9 +76,7 @@
         margin: 0;
 
     }
-    .content h1 {
-        margin-top: -105px; /* Adjust the value to move the heading up or down */
-    }
+    
     
 
     nav {
@@ -203,12 +202,21 @@
         background-color: white;
     }
     
-    .content{
-        margin-top: 15%;
-        margin-left: 50px;
-        color: white;
-        max-width: 700px;
+    .container1,
+    .container2 {
+    position: relative;
     }
+
+    .container1 .content,
+    .container2 .content {
+    position: absolute;
+    bottom: 40px;
+    left: 42%;
+    transform: translateX(-50%);
+    width: 80%;
+    color: white;
+    }
+
     .content h1{
         font-size: 50px;
         font-family: Arial, Helvetica, sans-serif;
@@ -326,7 +334,7 @@
         z-index: -1; /* Set z-index to place behind other content */
     }
     #geoportalFrame {
-        margin-top: -16px; /* Adjust the value as needed */
+        height: 80vh;
     }
     
     
@@ -382,14 +390,13 @@
         color: gray;
     }
     .map {
-        height: 410px; 
-        width: 90%;
-        border: solid; 
+        height: 80vh;
+        width: 95%;
+        border: solid;
         border-color: rgb(255, 179, 92);
         margin: 0 auto;
-        margin: -16.5px auto 0;
-        
     }
+    
 
     @media only screen and (max-width: 800px) {
         /* Styles for screens with a maximum width of 800px or less */
@@ -417,4 +424,3 @@
     
         /* You can add more styles as needed for responsive design */
     }
-    
