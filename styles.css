@@ -1,4 +1,4 @@
- body {
+body {
         margin: 0;
         padding: 0;
     }
@@ -68,6 +68,24 @@
 
     }
     .container5{
+        width: 100%;
+        max-height: 100vh;
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+        margin: 0;
+
+    }
+    .container6{
+        width: 100%;
+        max-height: 100vh;
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+        margin: 0;
+
+    }
+    .container7{
         width: 100%;
         max-height: 100vh;
         background-size: cover;
@@ -334,8 +352,22 @@
         z-index: -1; /* Set z-index to place behind other content */
     }
     #geoportalFrame {
-        height: 80vh;
+        height: 68vh;
     }
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px; /* Adjust the gap between images as needed */
+        margin-top: 20px; /* Add some margin top to separate from the above content */
+    }
+    
+    .image-grid img {
+        width: 100%;
+        height: auto; /* Ensure images maintain their aspect ratio */
+        object-fit: cover; /* Optional: covers the container with the image */
+        border-radius: 5px; /* Optional: add rounded corners to images */
+    }
+    
     
     
     
@@ -396,6 +428,67 @@
         border-color: rgb(255, 179, 92);
         margin: 0 auto;
     }
+    .image-container {
+        position: relative;
+    }
+    
+    .interaction-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* Allow interaction with the image */
+    }
+    .opinion-poll {
+        margin-top: 20px;
+    }
+    
+    .poll-table {
+        width: 90%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        font-size: 18px; /* Better font size */
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .poll-table th, .poll-table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .poll-table th {
+        background-color: rgb(209, 190, 253);
+        color: white;
+        text-align: center;
+    }
+    
+    .poll-table tr:hover {
+        background-color: #f1f1f1;
+    }
+    
+    .poll-table td input[type="radio"] {
+        transform: scale(1.3); /* Make radio buttons larger */
+    }
+    
+    button[type="submit"] {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: rgb(169, 132, 255);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: rgb(136, 86, 255);
+    }
+    
     
 
     @media only screen and (max-width: 800px) {
