@@ -488,7 +488,26 @@ body {
     button[type="submit"]:hover {
         background-color: rgb(136, 86, 255);
     }
-    
+    .large-input {
+        width: 200px; /* Adjust the width as needed */
+        margin-left: 10px; /* Add some space between the radio button and the text box */
+    }
+    .poll-table {
+        width: 97%;
+        border-collapse: collapse;
+    }
+    .poll-table td {
+        padding: 10px;
+        vertical-align: middle; /* Ensures vertical alignment of radio buttons and text boxes */
+    }
+    .poll-table td:first-child {
+        text-align: left;
+        width: 70%; /* Adjust width percentage as needed */
+    }
+    .poll-table td:last-child {
+        text-align: right;
+        width: 30%; /* Adjust width percentage as needed */
+    }
     
 
     @media only screen and (max-width: 800px) {
@@ -517,4 +536,3 @@ body {
     
         /* You can add more styles as needed for responsive design */
     }
-    
